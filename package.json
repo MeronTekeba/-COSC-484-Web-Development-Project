@@ -1,0 +1,23 @@
+{
+  "name": "-cosc-484-web-development-project",
+  "version": "1.0.0",
+  "description": "not much here yet :)",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Keem321/-COSC-484-Web-Development-Project.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Keem321/-COSC-484-Web-Development-Project/issues"
+  },
+  "homepage": "https://github.com/Keem321/-COSC-484-Web-Development-Project#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
