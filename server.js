@@ -2,8 +2,6 @@
 const express = require("express");
 const app = express();
 
-const logger = require("heroku-logger");
-
 const { MongoClient } = require("mongodb");
 
 const uri = process.env.MONGODB_URI;
@@ -25,9 +23,6 @@ app.get("/api/members", async function (req, res) {
     const query = { age: 21 };
     const cursor = collection.find(query);
     const result = await cursor.toArray();
-
-    logger.info('query result:', result);
-    logger.info('query res.json:', res.json(result));
 
     return res.json(result);
     
