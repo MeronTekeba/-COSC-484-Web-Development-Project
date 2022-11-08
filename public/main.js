@@ -3,8 +3,9 @@ function run() {
     .then((res) => res.json())
     .then((json) => {
       console.log(json);
-      table = document.getElementById("table").innerHTML;
-      
+      tableSection = document.getElementById("table");
+      table = tableSection.getElementByTagName("p")[0].innerText;
+
       table = "<table border==\"1\"><tr>";
       for (names in json[0]) {
         table += ("<td>" + names + "</td>");
@@ -19,6 +20,6 @@ function run() {
       }
       table += "</table>";
 
-      document.getElementById("table").style.visibility = "visible";
+      tableSection.style.visibility = "visible";
     });
 }
