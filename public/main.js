@@ -2,12 +2,13 @@ function run() {
   fetch("/api/members")
     .then((res) => res.json())
     .then((json) => {
+      console.log("First user in the array:");
       console.log(json[0]);
-      tableSection = document.getElementById("table");
-      table = tableSection.getElementsByTagName("p")[0].innerText;
+      console.log("Name of the first user in the array:");
+      console.log(json[0].name);
 
-      table = json[0].name;
-
-      tableSection.style.visibility = "visible";
+      const detailsElement = document.getElementById("members");
+      detailsElement.getElementsByTagName("p")[0].innerText = json[0].name;
+      detailsElement.style.visibility = "visible";
     });
 }
