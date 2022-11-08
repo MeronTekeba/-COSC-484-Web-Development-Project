@@ -19,6 +19,6 @@ function run() {
       }
       table += "</table>";
 
-      table.style.visibility = "visible";
+      document.getElementById("table").style.visibility = "visible";
     });
 }
