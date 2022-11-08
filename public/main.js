@@ -8,6 +8,6 @@ function run() {
       string = "";
       json.forEach(function(user) { string.concat(" ", user.name) });
 
-      tableSection.getElementsByTagName("p")[0].innerText = result;
+      tableSection.getElementsByTagName("p")[0].innerText = string;
     });
 }
