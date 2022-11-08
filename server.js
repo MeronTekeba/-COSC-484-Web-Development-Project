@@ -17,10 +17,10 @@ app.get("/api/members", async function (req, res) {
     await client.connect();
 
     const database = client.db('oinkdb');
-    const collection = database.collection('users');
+    const collection = database.collection('user');
 
     // Query for a movie that has the title 'Back to the Future'
-    const query = { age: 21};
+    const query = { age: 21 };
     const cursor = await collection.aggregate([
       { $match: query },
       { $sample: { size: 1 } },
