@@ -5,6 +5,6 @@ function run() {
       const tableSection = document.getElementById("table");
       table = tableSection.getElementsByTagName("p")[0].innerText;
       table = json[0].name;
-      detailsElement.style.visibility = "visible";
+      tableSection.style.visibility = "visible";
     });
 }
