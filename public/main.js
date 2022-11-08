@@ -22,8 +22,3 @@ function run() {
       table.style.visibility = "visible";
     });
 }
-
-
-
-document.getElementById('log').innerHTML += '<br>Some new content!';
-<div id="log">initial content</div>
