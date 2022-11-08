@@ -7,7 +7,7 @@ function run() {
       tableSection.style.visibility = "visible";
       string = "";
       json.forEach(function(user) { 
-        string.concat(" ", user.name); 
+        string + user.name + ' '; 
         console.log(user);
         console.log(user.name)
       });
