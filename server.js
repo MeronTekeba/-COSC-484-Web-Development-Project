@@ -24,7 +24,9 @@ app.get("/api/members", async function (req, res) {
     const cursor = collection.find(query);
     const result = await cursor.toArray();
 
+    console.log(result);
     return res.json(result);
+    
   } catch(err) {
     console.log(err);
   }
