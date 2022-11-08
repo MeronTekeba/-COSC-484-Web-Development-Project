@@ -4,7 +4,7 @@ function run() {
     .then((json) => {
       console.log(json);
       tableSection = document.getElementById("table");
-      table = tableSection.getElementByTagName("p")[0].innerText;
+      table = tableSection.getElementsByTagName("p")[0].innerText;
 
       table = "<table border==\"1\"><tr>";
       for (names in json[0]) {
