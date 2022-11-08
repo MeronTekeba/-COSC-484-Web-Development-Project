@@ -5,7 +5,7 @@ function run() {
       console.log(json);
       table = document.getElementById("table").innerHTML;
       
-      table += "<table border==\"1\"><tr>";
+      table = "<table border==\"1\"><tr>";
       for (names in json[0]) {
         table += ("<td>" + names + "</td>");
       }
