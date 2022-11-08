@@ -7,9 +7,8 @@ function run() {
       console.log(json[0].age);
       const tableSection = document.getElementById("table");
       
-      for (user in json) {
+      json.forEach(function(user) { tableSection.getElementsByTagName("p")[0].innerText += user.name; });
         tableSection.getElementsByTagName("p")[0].innerText += user;
-      }
 
       tableSection.style.visibility = "visible";
     });
