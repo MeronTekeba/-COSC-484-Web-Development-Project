@@ -1,12 +1,10 @@
 function run() {
-  fetch("/api/movie")
+  fetch("/api/members")
     .then((response) => response.json())
     .then((data) => {
-      const detailsElement = document.getElementById("movie");
+      const detailsElement = document.getElementById("member box");
 
-      detailsElement.getElementsByTagName("img")[0].src = data.poster;
-      detailsElement.getElementsByTagName("h1")[0].innerText = data.title;
-      detailsElement.getElementsByTagName("p")[0].innerText = data.fullplot;
+      detailsElement.getElementsByTagName("p")[0].innerText = data.name;
 
       detailsElement.style.visibility = "visible";
     });
