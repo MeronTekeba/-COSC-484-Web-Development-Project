@@ -3,8 +3,7 @@ function run() {
     .then((res) => res.json())
     .then((json) => {
       const tableSection = document.getElementById("table");
-      table = tableSection.getElementsByTagName("p")[0].innerText;
-      table = json[0].name;
+      tableSection.getElementsByTagName("p")[0].innerText = json[0].name;
       tableSection.style.visibility = "visible";
     });
 }
