@@ -10,32 +10,21 @@ const uri = process.env.MONGODB_URI;
 app.use(express.static("public"));
 
 // define the first route
-app.get("/api/movie", async function (req, res) {
+app.get("/api/members", async function (req, res) {
   const client = new MongoClient(uri, { useUnifiedTopology: true });
   
   try {
     await client.connect();
 
-    const database = client.db('sample_mflix');
-    const collection = database.collection('movies');
+    const database = client.db('oinkdb');
+    const collection = database.collection('user');
 
-    // Query for a movie that has the title 'Back to the Future'
-    const query = { genres: "Comedy", poster: { $exists: true } };
-    const cursor = await collection.aggregate([
-      { $match: query },
-      { $sample: { size: 1 } },
-      { $project: 
-        {
-          title: 1,
-          fullplot: 1,
-          poster: 1
-        }
-      }
-    ]);
+    // Query for users aged 21
+    const query = { age: 21 };
+    const cursor = collection.find(query);
+    const result = await cursor.toArray();
 
-    const movie = await cursor.next();
-
-    return res.json(movie);
+    return res.json(result);
   } catch(err) {
     console.log(err);
   }
