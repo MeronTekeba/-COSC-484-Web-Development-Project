@@ -4,7 +4,7 @@ const app = express();
 
 const { MongoClient } = require("mongodb");
 
-const uri = "mongodb+srv://keem:<password>@cosc484-oink.wjezri1.mongodb.net/sample_mflix?retryWrites=true&w=majority";
+const uri = process.env.MONGODB_URI;
 
 // define the first route
 app.get("/api/members", async function (req, res) {
