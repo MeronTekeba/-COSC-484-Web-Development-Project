@@ -7,7 +7,7 @@ function run() {
       console.log("Name of the first user in the array:");
       console.log(json[0].name);
 
-      const detailsElement = document.getElementById("members");
+      const detailsElement = document.getElementById("table");
       detailsElement.getElementsByTagName("p")[0].innerText = json[0].name;
       detailsElement.style.visibility = "visible";
     });
