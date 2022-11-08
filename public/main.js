@@ -9,8 +9,9 @@ function run() {
       json.forEach(function(user) { 
         string.concat(" ", user.name); 
         console.log(user);
-        console.log(user.name)});
-
+        console.log(user.name)
+      });
+      console.log(string);
       tableSection.getElementsByTagName("p")[0].innerText = string;
     });
 }
