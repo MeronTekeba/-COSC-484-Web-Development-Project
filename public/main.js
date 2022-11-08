@@ -8,7 +8,6 @@ function run() {
       const tableSection = document.getElementById("table");
       
       json.forEach(function(user) { tableSection.getElementsByTagName("p")[0].innerText += user.name; });
-        tableSection.getElementsByTagName("p")[0].innerText += user;
 
       tableSection.style.visibility = "visible";
     });
