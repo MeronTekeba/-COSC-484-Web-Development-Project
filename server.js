@@ -20,7 +20,7 @@ app.get("/api/members", async function (req, res) {
     const collection = database.collection('user');
 
     // Query for users aged 21
-    const query = { age: 21 };
+    const query = req.query;
     const cursor = collection.find(query);
     const result = await cursor.toArray();
 
