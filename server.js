@@ -9,17 +9,16 @@ const uri = process.env.MONGODB_URI;
 // use the express-static middleware
 app.use(express.static("public"));
 
-// define the first route
-app.get("/api/members", async function (req, res) {
+// query the accounts db
+app.get("/api/accounts", async function (req, res) {
   const client = new MongoClient(uri, { useUnifiedTopology: true });
   
   try {
     await client.connect();
 
     const database = client.db('oinkdb');
-    const collection = database.collection('user');
+    const collection = database.collection('accounts');
 
-    // Query for users aged 21
     const query = req.query;
     const cursor = collection.find(query);
     const result = await cursor.toArray();
