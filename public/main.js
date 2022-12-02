@@ -15,6 +15,7 @@ function verifyLogin() {
   fetch("api/accounts")
   .then((res) => res.json())
   .then((json) => {
-    alert(json);
+    alert(JSON.stringify(json));
   });
+  return false;
 }
