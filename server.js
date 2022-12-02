@@ -9,6 +9,31 @@ const uri = process.env.MONGODB_URI;
 // use the express-static middleware
 app.use(express.static("public"));
 
+// login
+app.get("/api/login", async function (req, res) {
+  const client = new MongoClient(uri, { useUnifiedTopology: true });
+  console.log(req);
+  try {
+    await client.connect();
+
+    const database = client.db('oinkdb');
+    const collection = database.collection('accounts');
+
+    const query = req.query;
+    const cursor = collection.find(query);
+    const result = await cursor.toArray();
+
+    return res.json(result);
+    
+  } catch(err) {
+    console.log(err);
+  }
+  finally {
+    // Ensures that the client will close when you finish/error
+    await client.close();
+  }
+});
+
 // query the accounts db
 app.get("/api/accounts", async function (req, res) {
   const client = new MongoClient(uri, { useUnifiedTopology: true });
