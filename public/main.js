@@ -22,7 +22,7 @@ function verifyLogin() {
       document.getElementById("fail").innerHTML = "incorrect email address or password";
       return false;
     } else {
-      return true;
+      return false;
     }
   });
 }
