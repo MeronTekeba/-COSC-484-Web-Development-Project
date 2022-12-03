@@ -13,13 +13,15 @@ function run() {
 /* Verify all requirements met */
 function verifyLogin() {
   const response = doQuery();
+  console.log(response);
   const verified = (response != "[]");
   console.log(verified);
   
   if(!verified) {
     document.getElementById("fail").innerHTML = "incorrect email address or password";
+  } else {
+    return true;
   }
-  return verified;
 }
 
 function doQuery() {
