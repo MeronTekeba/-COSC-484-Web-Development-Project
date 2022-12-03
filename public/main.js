@@ -20,7 +20,7 @@ function verifyLogin() {
     json.forEach((account) => {
       if((account.email == document.getElementById('floatingInput').value) && (account.pass == document.getElementById('floatingPassword').value)) {
         console.log("found");
-        var found = true;
+        found = true;
       };
     });
   });
