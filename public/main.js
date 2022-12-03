@@ -18,8 +18,9 @@ function verifyLogin() {
   .then((json) => {
     if(JSON.stringify(json) == []) {
       document.getElementById("fail").innerHTML = "incorrect";
-      return false;
+      alert("hey, it empty");
     }
-    return false;
+    alert("hey, it good");
   });
+  return false;
 }
