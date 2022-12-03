@@ -14,19 +14,21 @@ function run() {
 function verifyLogin() {
   query = "/?email=" + document.getElementById('floatingInput').value 
   + "&pass=" + document.getElementById('floatingPassword').value;
-  alert(query);
+  console.log(query);
 
   fetch("api/accounts" + query)
   .then((res) => res.json())
   .then((json) => {
-    alert(JSON.stringify(json));
-  });
+    console.log(JSON.stringify(json));
 
-  if(JSON.stringify(json) == []) {
-    document.getElementById("fail").innerHTML = "incorrect";
-  } else {
-    document.location.href = newUrl;
-  }
+    if(JSON.stringify(json) == []) {
+      document.getElementById("fail").innerHTML = "incorrect";
+      console.log(fail);
+    } else {
+      console.log(success);
+      document.location.href = "home.html";
+    }
+  });
 }
 
 function verifyNewAccount() {
