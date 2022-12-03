@@ -11,14 +11,19 @@ function run() {
 }
 
 /* Verify all requirements met */
-function verifyLogin() {
-  query = "/?email=" + document.getElementById('floatingInput').value 
-  + "&pass=" + document.getElementById('floatingPassword').value;
-
-  fetch("api/accounts" + query)
-  .then((res) => res.json())
-  .then((json) => {
-    alert(JSON.stringify(json));
+function verifyLogin(e, form) {
+  e.preventDefault();
+  query = "/?email=" + form.floatingInput.value 
+  + "&pass=" + form.floatingPassword.value ;
+  alert(query);
+  fetch("api/accounts", {
+    method: 'post',
+    body: JSON.stringify({ email: form.floatingInput.value, pass: form.floatingPassword.value })
+  }).then((res) => res.json()).then((json) => {
+    alert('form submit!');
+    alert(json);
+  }).catch((err) => {
+    alert('Error');
   });
 }
 
