@@ -12,25 +12,18 @@ function run() {
 
 /* Verify all requirements met */
 function verifyLogin() {
-  const response = doQuery();
-  console.log(response);
-  const verified = (response != "[]");
-  console.log(verified);
-  
-  if(!verified) {
-    document.getElementById("fail").innerHTML = "incorrect email address or password";
-  } else {
-    return true;
-  }
-}
-
-function doQuery() {
   query = "?email=" + document.getElementById('floatingInput').value + "&pass=" + document.getElementById('floatingPassword').value;
+
   fetch("api/accounts/" + query)
   .then((res) => res.json())
   .then((json) => {
-    console.log(JSON.stringify(json));
-    return JSON.stringify(json);
+    alert(JSON.stringify(json));
+    if(JSON.stringify(json) == "[]") {
+      document.getElementById("fail").innerHTML = "incorrect email address or password";
+      return false;
+    } else {
+      return true;
+    }
   });
 }
 
