@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+
+<html lang=""en>
+    <head></head>
+    <body>
+        <form method="GET" onsubmit="return verifyForm()" action="tueats.html">
+
+            <fieldset name="Sign Up" class="logo">
+                <p>
+                    <label for="un">username:</label>
+                    <input type="text" id="un" name="username" placeholder="username" required />
+                </p>
+                <p>
+                    <label for="pw">password:</label>
+                    <input type="password" id="pw" name="password" placeholder="password" required />
+                </p>
+                <p>
+                    <label for="c-pw">confirm password:</label>
+                    <input type="password" id="c-pw" name="confirm_password" placeholder="confirm password" required />
+                </p>
+                <p>
+                    <label for="email">email:</label>
+                    <input type="email" id="email" name="email" placeholder="email" required />
+                </p>
+                <p>
+                    <label for="ref">referral code:</label>
+                    <input type="text" id="ref" name="referral" placeholder="referral code" onchange="return verifyReferral()"/>
+                </p>
+                <p>
+                    <p id="add-table"></p>
+                    <p id="ref-invalid"></p>
+                </p>
+                <p>
+                    <input type="checkbox" id="cb" name="newsletter" />
+                    <label for="cb">Sign up for our newsletter?</label> 
+                </p>
+            </fieldset>
+            <input type="submit"/>
+        </form>
+    </body>
+</html>
+
+uname
+"user"
+email
+"email@towson.edu"
+fname
+"First"
+lname
+"Last"
+pass
+"password"
+phone
+"1234567890"
