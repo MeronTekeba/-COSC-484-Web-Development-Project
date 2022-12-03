@@ -1,3 +1,5 @@
+const { from } = require("form-data");
+
 function run() {
   fetch("/api/members")
     .then((res) => res.json())
@@ -11,7 +13,7 @@ function run() {
 }
 
 /* Verify all requirements met */
-function verifyLogin() {
+function verifyLogin(form) {
   const emailInput = document.getElementById('floatingInput').value;
   const passwordInput = document.getElementById('floatingPassword').value;
   const query = "/?email=" + emailInput + "&pass=" + passwordInput;
@@ -21,9 +23,8 @@ function verifyLogin() {
   .then((json) => {
     if( JSON.stringify(json) == "[]" ) {
       document.getElementById("fail").innerHTML = "incorrect email address or password";
-      return false;
     } else {
-      return true;
+      form.submit();
     }
   });
 }
