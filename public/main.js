@@ -13,7 +13,7 @@ function run() {
 /* Verify all requirements met */
 function verifyLogin() {
   const response = doQuery();
-  const verified = response != "[]";
+  const verified = (response != "[]");
   console.log(verified);
   
   if(!verified) {
