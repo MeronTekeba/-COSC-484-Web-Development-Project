@@ -17,7 +17,7 @@ function verifyLogin(e, form) {
   + "&pass=" + form.floatingPassword.value ;
   alert(query);
   fetch("api/accounts", {
-    method: 'post',
+    method: 'get',
     body: JSON.stringify({ email: form.floatingInput.value, pass: form.floatingPassword.value })
   }).then((res) => res.json()).then((json) => {
     alert('form submit!');
