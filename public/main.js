@@ -12,7 +12,9 @@ function run() {
 
 /* Verify all requirements met */
 function verifyLogin() {
-  fetch("api/accounts")
+  var urlSearchParams = new URLSearchParams(window.location.search);
+  alert(urlSearchParams);
+  fetch("api/accounts/" + urlSearchParams)
   .then((res) => res.json())
   .then((json) => {
     alert(JSON.stringify(json));

@@ -45,7 +45,6 @@ app.get("/api/accounts", async function (req, res) {
     const collection = database.collection('accounts');
 
     const query = req.query;
-    alert(query);
     const cursor = collection.find(query);
     const result = await cursor.toArray();
 
