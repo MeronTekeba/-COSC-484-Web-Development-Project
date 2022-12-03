@@ -12,23 +12,19 @@ function run() {
 
 /* Verify all requirements met */
 function verifyLogin() {
+  var found = false;
   fetch("/api/accounts")
   .then((res) => res.json())
   .then((json) => {
     json.forEach((account) => {
-      console.log(account.email); 
-      console.log(document.getElementById('floatingInput').value); 
-      console.log(account.pass);
-      console.log(document.getElementById('floatingPassword').value); 
-
       if((account.email == document.getElementById('floatingInput').value) && (account.pass == document.getElementById('floatingPassword').value)) {
         console.log("found");
-        return true;
+        var found = true;
       };
     });
   });
 
-  return false;
+  return found;
 }
 
 function verifyNewAccount() {
