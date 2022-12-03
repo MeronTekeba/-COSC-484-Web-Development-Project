@@ -15,6 +15,7 @@ function verifyLogin() {
   query = "/?email=" + document.getElementById('floatingInput').value 
   + "&pass=" + document.getElementById('floatingPassword').value;
   alert(query);
+  
   fetch("api/accounts" + query)
   .then((res) => res.json())
   .then((json) => {
