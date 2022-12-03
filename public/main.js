@@ -15,7 +15,7 @@ function verifyLogin() {
   query = "/?email=" + document.getElementById('floatingInput').value 
   + "&pass=" + document.getElementById('floatingPassword').value;
   alert(query);
-  
+
   fetch("api/accounts" + query)
   .then((res) => res.json())
   .then((json) => {
@@ -24,9 +24,9 @@ function verifyLogin() {
 
   if(JSON.stringify(json) == []) {
     document.getElementById("fail").innerHTML = "incorrect";
-    return false;
+  } else {
+    document.location.href = newUrl;
   }
-  return false;
 }
 
 function verifyNewAccount() {
