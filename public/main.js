@@ -11,22 +11,21 @@ function run() {
 }
 
 /* Verify all requirements met */
-function verifyLogin(form) {
-  const emailInput = document.getElementById('floatingInput').value;
-  const passwordInput = document.getElementById('floatingPassword').value;
-  const query = "/?email=" + emailInput + "&pass=" + passwordInput;
+function verifyLogin() {
+  query = "/?email=" + document.getElementById('floatingInput').value 
+  + "&pass=" + document.getElementById('floatingPassword').value;
   alert(query);
-
-  fetch("/api/accounts" + query)
+  fetch("api/accounts" + query)
   .then((res) => res.json())
   .then((json) => {
     alert(JSON.stringify(json));
-    if( JSON.stringify(json) == "[]" ) {
-      document.getElementById("fail").innerHTML = "incorrect email address or password";
-    } else {
-      form.submit();
-    }
   });
+
+  if(JSON.stringify(json) == []) {
+    document.getElementById("fail").innerHTML = "incorrect";
+    return false;
+  }
+  return false;
 }
 
 function verifyNewAccount() {
