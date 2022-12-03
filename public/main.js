@@ -12,11 +12,11 @@ function run() {
 
 /* Verify all requirements met */
 function verifyLogin() {
-  query = "/?email=" + document.getElementById('floatingInput').value 
+  query = "?email=" + document.getElementById('floatingInput').value 
   + "&pass=" + document.getElementById('floatingPassword').value;
   console.log(query);
 
-  fetch("api/accounts" + query)
+  fetch("api/accounts/" + query)
   .then((res) => res.json())
   .then((json) => {
     console.log(JSON.stringify(json));
@@ -26,7 +26,6 @@ function verifyLogin() {
       console.log(fail);
     } else {
       console.log(success);
-      document.location.href = "home.html";
     }
   });
 }
