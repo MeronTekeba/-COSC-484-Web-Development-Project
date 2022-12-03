@@ -12,6 +12,7 @@ function run() {
 
 /* Verify all requirements met */
 function verifyLogin() {
+  document.getElementById("fail").innerHTML = "";
   query = "?email=" + document.getElementById('floatingInput').value 
   + "&pass=" + document.getElementById('floatingPassword').value;
   alert(query);
@@ -20,5 +21,10 @@ function verifyLogin() {
   .then((json) => {
     alert(JSON.stringify(json));
   });
+
+  if(JSON.stringify(json) == []) {
+    document.getElementById("fail").innerHTML = "incorrect";
+    return false;
+  }
   return false;
 }
