@@ -12,10 +12,11 @@ function run() {
 
 /* Verify all requirements met */
 function verifyLogin() {
-  var found = false;
+  var found;
   fetch("/api/accounts")
   .then((res) => res.json())
   .then((json) => {
+    found = false;
     json.forEach((account) => {
       if((account.email == document.getElementById('floatingInput').value) && (account.pass == document.getElementById('floatingPassword').value)) {
         console.log("found");
@@ -23,7 +24,7 @@ function verifyLogin() {
       };
     });
   });
-
+  console.log("found? " + found);
   return found;
 }
 
