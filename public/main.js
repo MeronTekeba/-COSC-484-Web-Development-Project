@@ -12,9 +12,10 @@ function run() {
 
 /* Verify all requirements met */
 function verifyLogin() {
-  var urlSearchParams = new URLSearchParams(window.location.search);
-  alert(urlSearchParams);
-  fetch("api/accounts/" + urlSearchParams)
+  query = "?email=" + document.getElementById('floatingInput').value 
+  + "&pass=" + document.getElementById('floatingPassword').value;
+  alert(query);
+  fetch("api/accounts/" + query)
   .then((res) => res.json())
   .then((json) => {
     alert(JSON.stringify(json));
