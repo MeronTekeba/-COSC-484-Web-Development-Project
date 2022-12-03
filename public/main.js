@@ -22,6 +22,7 @@ function verifyLogin() {
       console.log(document.getElementById('floatingPassword').value); 
 
       if((account.email == document.getElementById('floatingInput').value) && (account.pass == document.getElementById('floatingPassword').value)) {
+        console.log("found");
         return true;
       };
     });
