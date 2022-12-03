@@ -1,5 +1,3 @@
-const { from } = require("form-data");
-
 function run() {
   fetch("/api/members")
     .then((res) => res.json())
