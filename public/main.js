@@ -13,18 +13,19 @@ function run() {
 /* Verify all requirements met */
 function verifyLogin() {
   query = "?email=" + document.getElementById('floatingInput').value + "&pass=" + document.getElementById('floatingPassword').value;
-
   fetch("api/accounts/" + query)
   .then((res) => res.json())
-  .then((json) => {
-    alert(JSON.stringify(json));
-    if(JSON.stringify(json) == "[]") {
-      document.getElementById("fail").innerHTML = "incorrect email address or password";
-      return false;
-    } else {
-      return false;
-    }
-  });
+  .then((json) => {JSON.stringify(json)})
+  .then((response) => {
+    if(response == "[]") {
+    document.getElementById("fail").innerHTML = "incorrect email address or password";
+    return false;
+  } else {
+    return true;
+  }});
+
+  alert(JSON.stringify(json));
+
 }
 
 function verifyNewAccount() {
