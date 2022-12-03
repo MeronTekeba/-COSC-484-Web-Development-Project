@@ -17,11 +17,15 @@ function verifyLogin() {
   fetch("api/accounts/" + query)
   .then((res) => res.json())
   .then((json) => {
+    console.log(JSON.stringify(json));
     if(JSON.stringify(json) != "[]") {
       verified = true;
     }
   });
-  if(!verified) { document.getElementById("fail").innerHTML = "incorrect email address or password"; }
+  if(!verified) { 
+    document.getElementById("fail").innerHTML = "incorrect email address or password";
+  }
+  console.log(verified);
   return verified;
 }
 
