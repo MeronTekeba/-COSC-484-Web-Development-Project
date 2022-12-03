@@ -11,18 +11,11 @@ function run() {
 }
 
 /* Verify all requirements met */
-function verifyLogin() {
-  var query = "?email=" + document.getElementById('floatingInput').value + "&pass=" + document.getElementById('floatingPassword').value;
-  fetch("api/accounts/" + query)
-  .then((res) => res.json())
-  .then((json) => {JSON.stringify(json)})
-  .then((response) => {
-    if(response == "[]") {
-    document.getElementById("fail").innerHTML = "incorrect email address or password";
-    return false;
-  } else {
-    return true;
-  }});
+async function verifyLogin() {
+  const query = "?email=" + document.getElementById('floatingInput').value + "&pass=" + document.getElementById('floatingPassword').value;
+  const response = await fetch("api/accounts/" + query);
+  const accounts = await response.json();
+  alert(accounts);
 }
 
 function verifyNewAccount() {
