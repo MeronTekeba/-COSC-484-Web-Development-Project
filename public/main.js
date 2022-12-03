@@ -12,21 +12,13 @@ function run() {
 
 /* Verify all requirements met */
 function verifyLogin() {
-  query = "?email=" + document.getElementById('floatingInput').value 
+  query = "/?email=" + document.getElementById('floatingInput').value 
   + "&pass=" + document.getElementById('floatingPassword').value;
-  console.log(query);
 
-  fetch("api/accounts/" + query)
+  fetch("api/accounts" + query)
   .then((res) => res.json())
   .then((json) => {
-    console.log(JSON.stringify(json));
-
-    if(JSON.stringify(json) == []) {
-      document.getElementById("fail").innerHTML = "incorrect";
-      console.log(fail);
-    } else {
-      console.log(success);
-    }
+    alert(JSON.stringify(json));
   });
 }
 
