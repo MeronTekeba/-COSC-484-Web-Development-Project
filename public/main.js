@@ -11,18 +11,29 @@ function run() {
 }
 
 /* Verify all requirements met */
-function verifyLogin() {
-  query = "?email=" + document.getElementById('floatingInput').value + "&pass=" + document.getElementById('floatingPassword').value;
-  fetch("api/accounts/" + query)
-  .then((res) => res.json())
-  .then((json) => {
-    alert(JSON.stringify(json));
-    if(JSON.stringify(json) != "[]") {
-      document.getElementById("fail").innerHTML = "incorrect email address or password";
-      return true;
-    }
-  });
-  return false;
+const form = document.getElementById("login-form");
+form.addEventListener("submit", formSubmit);
+
+function formSubmit(e) {
+  e.preventDefault()
+
+  const formData = new FormData();
+  formData.append(
+    'email',
+    document.querySelector('input[id="floatingInput"]').value
+  )
+  formData.append(
+    'password',
+    document.querySelector('input[id="floatingPassword"]').value
+  )
+
+  fetch("api/accounts",
+  {
+    method: "POST",
+    body: formData,
+  })
+  .then(response => console.log(response))
+  .catch(error => console.log(error))
 }
 
 function verifyNewAccount() {
