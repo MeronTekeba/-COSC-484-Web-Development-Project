@@ -11,11 +11,18 @@ function run() {
 }
 
 /* Verify all requirements met */
-async function verifyLogin() {
-  const query = "?email=" + document.getElementById('floatingInput').value + "&pass=" + document.getElementById('floatingPassword').value;
-  const response = await fetch("api/accounts/" + query);
-  const accounts = await response.json();
-  alert(accounts);
+function verifyLogin() {
+  query = "?email=" + document.getElementById('floatingInput').value + "&pass=" + document.getElementById('floatingPassword').value;
+  fetch("api/accounts/" + query)
+  .then((res) => res.json())
+  .then((json) => {
+    alert(JSON.stringify(json))
+    if(JSON.stringify(json) == "[]") {
+      document.getElementById("fail").innerHTML = "incorrect email address or password";
+      return false;
+    }
+  });
+  return true;
 }
 
 function verifyNewAccount() {
