@@ -16,7 +16,8 @@ function verifyLogin() {
   fetch("api/accounts/" + query)
   .then((res) => res.json())
   .then((json) => {
-    if(JSON.stringify(json) == []) {
+    alert(JSON.stringify(json))
+    if(JSON.stringify(json) == "[]") {
       document.getElementById("fail").innerHTML = "incorrect";
       alert("hey, it empty");
     }
