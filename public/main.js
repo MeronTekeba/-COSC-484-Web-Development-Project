@@ -17,14 +17,12 @@ function verifyLogin() {
   .then((res) => res.json())
   .then((json) => {
     alert(JSON.stringify(json))
-    if(JSON.stringify(json) == "[]") {
+    if(JSON.stringify(json) != "[]") {
       document.getElementById("fail").innerHTML = "incorrect email address or password";
-      return false;
-    }
-    else {
       return true;
     }
   });
+  return false;
 }
 
 function verifyNewAccount() {
