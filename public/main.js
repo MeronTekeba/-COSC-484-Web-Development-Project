@@ -18,10 +18,10 @@ function verifyLogin() {
   .then((res) => res.json())
   .then((json) => {
     if(JSON.stringify(json) != "[]") {
-      document.getElementById("fail").innerHTML = "incorrect email address or password";
       verified = true;
     }
   });
+  if(!verified) {      document.getElementById("fail").innerHTML = "incorrect email address or password";}
   return verified;
 }
 
