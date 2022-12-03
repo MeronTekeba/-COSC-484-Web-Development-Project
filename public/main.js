@@ -21,7 +21,7 @@ function verifyLogin() {
       verified = true;
     }
   });
-  if(!verified) {      document.getElementById("fail").innerHTML = "incorrect email address or password";}
+  if(!verified) { document.getElementById("fail").innerHTML = "incorrect email address or password"; }
   return verified;
 }
 
