@@ -78,7 +78,7 @@
     
 <main class="form-signin w-100 m-auto">
   <script type="text/javascript" src="main.js"></script>
-  <form method="GET" onsubmit="return await verifyLogin(this); return false;" action="home.html">
+  <form method="GET" onsubmit="return verifyLogin(this); return false;" action="home.html">
     <div class="row">
       <h1 class="float-md-start mb-10">🐷Oink💰</h3>
     </div>
@@ -104,26 +104,6 @@
     <a href="signup.html">Not a Member? Sign Up.</a>
   </form>
 </main>
-
-<script>
-  function verifyLogin(form) {
-  const emailInput = document.getElementById('floatingInput').value;
-  const passwordInput = document.getElementById('floatingPassword').value;
-  const query = "/?email=" + emailInput + "&pass=" + passwordInput;
-  alert(query);
-
-  fetch("/api/accounts" + query)
-  .then((res) => res.json())
-  .then((json) => {
-    alert(JSON.stringify(json));
-    if( JSON.stringify(json) == "[]" ) {
-      document.getElementById("fail").innerHTML = "incorrect email address or password";
-    } else {
-      form.submit();
-    }
-  });
-}
-</script>
     
 <script type="text/javascript" src="main.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>       
