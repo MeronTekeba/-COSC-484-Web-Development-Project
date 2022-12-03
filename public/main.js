@@ -11,29 +11,20 @@ function run() {
 }
 
 /* Verify all requirements met */
-const form = document.getElementById("login-form");
-form.addEventListener("submit", formSubmit);
+function verifyLogin() {
+  const query = "?email=" + document.getElementById('floatingInput').value + "&pass=" + document.getElementById('floatingPassword').value;
 
-function formSubmit(e) {
-  e.preventDefault()
+  fetch("/api/accounts")
+  .then((res) => res.json())
+  .then((json) => {
+    json.forEach((account) => { 
+      alert(account);
+      alert(account.email = document.getElementById('floatingInput').value);
+      alert(account.email = document.getElementById('floatingPassword').value);
+    });
+  });
 
-  const formData = new FormData();
-  formData.append(
-    'email',
-    document.querySelector('input[id="floatingInput"]').value
-  )
-  formData.append(
-    'password',
-    document.querySelector('input[id="floatingPassword"]').value
-  )
-
-  fetch("api/accounts",
-  {
-    method: "POST",
-    body: formData,
-  })
-  .then(response => console.log(response))
-  .catch(error => console.log(error))
+  return false;
 }
 
 function verifyNewAccount() {
