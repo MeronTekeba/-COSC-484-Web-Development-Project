@@ -13,7 +13,7 @@ function run() {
 /* Verify all requirements met */
 function verifyLogin(e, form) {
   e.preventDefault();
-  query = "/?email=" + form.floatingInput.value 
+  query = "?email=" + form.floatingInput.value 
   + "&pass=" + form.floatingPassword.value ;
   alert(query);
   fetch("api/accounts", {
