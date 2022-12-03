@@ -12,7 +12,7 @@ function run() {
 
 /* Verify all requirements met */
 function verifyLogin() {
-  query = "?email=" + document.getElementById('floatingInput').value + "&pass=" + document.getElementById('floatingPassword').value;
+  var query = "?email=" + document.getElementById('floatingInput').value + "&pass=" + document.getElementById('floatingPassword').value;
   fetch("api/accounts/" + query)
   .then((res) => res.json())
   .then((json) => {JSON.stringify(json)})
@@ -23,9 +23,6 @@ function verifyLogin() {
   } else {
     return true;
   }});
-
-  alert(JSON.stringify(json));
-
 }
 
 function verifyNewAccount() {
