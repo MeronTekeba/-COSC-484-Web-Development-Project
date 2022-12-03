@@ -12,12 +12,15 @@ function run() {
 
 /* Verify all requirements met */
 function verifyLogin() {
-  const query = "?email=" + document.getElementById('floatingInput').value + "&pass=" + document.getElementById('floatingPassword').value;
-
   fetch("/api/accounts")
   .then((res) => res.json())
   .then((json) => {
-    json.forEach((account) => { 
+    json.forEach((account) => {
+      console.log(account.email); 
+      console.log(document.getElementById('floatingInput').value); 
+      console.log(account.pass);
+      console.log(document.getElementById('floatingPassword').value); 
+
       if((account.email == document.getElementById('floatingInput').value) && (account.pass == document.getElementById('floatingPassword').value)) {
         return true;
       };
