@@ -11,10 +11,10 @@ function run() {
 }
 
 /* Verify all requirements met */
-function verifyLogin() {
+async function verifyLogin() {
   var verified = false;
   query = "?email=" + document.getElementById('floatingInput').value + "&pass=" + document.getElementById('floatingPassword').value;
-  fetch("api/accounts/" + query)
+  await fetch("api/accounts/" + query)
   .then((res) => res.json())
   .then((json) => {
     console.log(JSON.stringify(json));
