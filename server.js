@@ -59,6 +59,52 @@ app.get("/api/accounts", async function (req, res) {
   }
 });
 
+// get posts from db
+app.get('/api/posts', async function(req, res){
+  const client = new MongoClient(uri, { useUnifiedTopology: true });
+  try {
+    await client.connect();
+
+    const database = client.db('oinkdb');
+    const collection = database.collection('posts');
+
+    const query = req.query;
+    const cursor = collection.find(query);
+    const result = await cursor.toArray();
+
+    return res.json(result);
+    
+  } catch(err) {
+    console.log(err);
+  }
+  finally {
+    // Ensures that the client will close when you finish/error
+    await client.close();
+  }
+});
+
+// send post entry to db
+app.post('/api/post', async function(req, res){
+  const client = new MongoClient(url, { useUnifiedTopology: true});
+  try {
+    await client.connect();
+    const database = client.db('oinkdb');
+    const collection = database.collection('posts');
+
+    const query = req.query;
+    const cursor = collection.insert(query);
+    const result = await cursor.toArray();
+
+    return res.json(result);
+
+  } catch(err){
+    console.log(err);
+  }
+  finally{
+    await client.close();
+  }
+});
+
 // start the server listening for requests
 app.listen(process.env.PORT || 3000, 
 	() => console.log("Server is running..."));
