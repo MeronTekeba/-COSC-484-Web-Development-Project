@@ -13,11 +13,12 @@ function run() {
 /* Verify all requirements met */
 async function verifyLogin() {
   const json = await this.getJSON();
-
+  console.log(json);
   json.forEach((account) => {
     if( (account.email == document.getElementById('floatingInput').value) && (account.pass == document.getElementById('floatingPassword').value) ) {
       return true;
     }});
+  console.log('false reached');
   return false;
 }
 
