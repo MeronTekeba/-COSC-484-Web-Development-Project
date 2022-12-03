@@ -11,21 +11,20 @@ function run() {
 }
 
 /* Verify all requirements met */
-function verifyLogin() {
-  var found;
-  fetch("/api/accounts")
+async function verifyLogin() {
+  const json = await this.getJSON();
+
+  json.forEach((account) => {
+    if( (account.email == document.getElementById('floatingInput').value) && (account.pass == document.getElementById('floatingPassword').value) ) {
+      return true;
+    }});
+  return false;
+}
+
+async function getJSON() {
+  return fetch("/api/accounts")
   .then((res) => res.json())
-  .then((json) => {
-    found = false;
-    json.forEach((account) => {
-      if((account.email == document.getElementById('floatingInput').value) && (account.pass == document.getElementById('floatingPassword').value)) {
-        console.log("found");
-        found = true;
-      };
-    });
-  });
-  console.log("found? " + found);
-  return found;
+  .then((json) => {return json});
 }
 
 function verifyNewAccount() {
