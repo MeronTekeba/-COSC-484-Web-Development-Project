@@ -18,7 +18,7 @@ function verifyLogin() {
   .then((res) => res.json())
   .then((json) => {
     json.forEach((account) => { 
-      if(account.email == document.getElementById('floatingInput').value) and (account.pass == document.getElementById('floatingPassword').value) {
+      if((account.email == document.getElementById('floatingInput').value) && (account.pass == document.getElementById('floatingPassword').value)) {
         return true;
       };
     });
